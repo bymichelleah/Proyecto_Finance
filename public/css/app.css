@@ -1,5 +1,3 @@
-@import "./sidebar.css";
-
 *{
     padding: 0;
     margin: 0;
@@ -9,5 +7,4 @@
 
 body{
     display: flex;
-    color: aqua;
 }

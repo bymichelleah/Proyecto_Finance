@@ -1,0 +1,42 @@
+.sidebar {
+    background-color: rgb(255, 255, 255);         
+    padding: 20px;                  
+    display: flex;
+    flex-direction: column;         
+    justify-content: space-between; 
+    align-items: center;
+    width: 223px;                   
+    height: 100vh;                  
+    box-sizing: border-box;         
+}
+
+.modulos{
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
+}
+
+.links-modulos{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.links-modulos a{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    text-decoration: none;
+    color: #282828;
+}
+
+.links-modulos a:hover{
+    background: linear-gradient(to right, #3B38A0, #7A85C1);
+    border-radius: 20px;
+    color: white;
+}
+
+.links-modulos svg:hover{
+    color: white;
+}
