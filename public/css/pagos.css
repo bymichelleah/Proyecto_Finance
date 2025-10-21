@@ -1,0 +1,230 @@
+/* base */
+:root {
+    --bg: #f2f2f2;
+    --card: #ffffff;
+    --accent: #7a42f4; /* morado pill */
+    --accent-dark: #5b2bd9;
+    --title: #0b0b0b;
+    --muted: #6b6b6b;
+    --table-border: rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: var(--bg);
+    margin: 0;
+    color: #222;
+}
+
+/* container */
+.page {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 0 28px;
+}
+
+/* header */
+.page-header {
+    margin-bottom: 28px;
+}
+.page-title {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+    color: var(--title);
+}
+.page-sub {
+    color: var(--muted);
+    margin: 0 0 18px 0;
+}
+
+/* info pill */
+.info-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: linear-gradient(
+        90deg,
+        var(--accent) 0%,
+        var(--accent-dark) 100%
+    );
+    color: #fff;
+    padding: 16px 22px;
+    border-radius: 24px;
+    box-shadow: 0 6px 20px rgba(122, 66, 244, 0.12);
+    max-width: 100%;
+}
+.info-pill .pill-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info-pill .pill-text {
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+/* columnas y filas */
+.pagos-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    table-layout: fixed;
+}
+
+.pagos-table th,
+.pagos-table td {
+    border-bottom: 1px solid var(--table-border);
+    text-align: center;
+    padding: 14px 10px;
+    vertical-align: middle;
+    height: 46px;
+}
+
+/* montos: texto y flechas alineados horizontalmente */
+.monto-min,
+.monto-max {
+    align-items: center;
+    justify-content: center;
+    gap: 6px; /* separación justa */
+    white-space: nowrap; /* evita que el texto se parta en dos líneas */
+}
+
+/* tamaño visual consistente de íconos */
+.monto-min svg,
+.monto-max svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+/* acciones */
+.accion-ojo {
+    display: inline-flex; /* ✅ mantiene el botón ajustado al contenido */
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.accion-ojo svg {
+    width: 18px;
+    height: 18px;
+}
+
+.accion-ojo:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: scale(1.05);
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+}
+
+.popup-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.popup-card {
+    position: relative;
+    width: 360px;
+    max-width: 95%;
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px;
+    text-align: left;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    z-index: 2;
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.popup-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.popup-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.popup-body p {
+    margin: 6px 0;
+    color: #222;
+    font-size: 15px;
+}
+
+.popup-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #5c6bf1, #6a82fb);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #222;
+}
+
+.btn svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+    margin-top: 1px; /* para centrarlo visualmente */
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .popup-card {
+        width: 90%;
+        padding: 20px;
+    }
+}
