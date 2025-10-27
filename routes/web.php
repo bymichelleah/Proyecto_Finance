@@ -23,7 +23,14 @@ Route::delete('/productos/{id}', [ProductController::class, 'destroy'])->name('p
 Route::post('/productos', [ProductController::class, 'store'])->name('productos.store');
 Route::get('/productos/crear', [ProductController::class, 'create'])->name('productos.create');
 
+
 Route::post('/login', function () {
     // Aquí simplemente redirige a productos
     return redirect('/productos');
 });
+
+
+Route::get('/reportes', function () {
+    return view('reportes.reportes');
+});
+
