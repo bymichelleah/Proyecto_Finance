@@ -2,9 +2,9 @@
 use App\Http\Controllers\Api\ProductController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/login', function () {
+Route::get('/', function () {
     return view('auth.login');
-})->name('login');
+});
 
 Route::get('auth/{provider}', [SocialiteController::class, 'redirect']);
 Route::get('auth/{provider}/callback', [SocialiteController::class, 'callback']);
@@ -22,3 +22,8 @@ Route::put('/productos/{id}', [ProductController::class, 'update'])->name('produ
 Route::delete('/productos/{id}', [ProductController::class, 'destroy'])->name('productos.destroy');
 Route::post('/productos', [ProductController::class, 'store'])->name('productos.store');
 Route::get('/productos/crear', [ProductController::class, 'create'])->name('productos.create');
+
+Route::post('/login', function () {
+    // Aquí simplemente redirige a productos
+    return redirect('/productos');
+});

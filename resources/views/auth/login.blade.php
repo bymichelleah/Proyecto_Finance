@@ -47,18 +47,19 @@
 
         <div class="divider">o continuar con</div>
 
-        <form>
+        <form action="/login" method="POST">
+          @csrf
           <div class="field">
             <label for="email">Correo Electrónico</label>
-            <input id="email" type="email" placeholder="Ingresa tu correo electrónico" disabled>
+            <input id="email" type="email" placeholder="Ingresa tu correo electrónico" >
           </div>
 
           <div class="field">
             <label for="password">Contraseña</label>
-            <input id="password" type="password" placeholder="********" disabled>
+            <input id="password" type="password" placeholder="********" >
           </div>
 
-          <button type="button" class="btn-primary" disabled>Ingresar</button>
+          <button type="submit" class="btn-primary">Ingresar</button>
         </form>
       </div>
 
