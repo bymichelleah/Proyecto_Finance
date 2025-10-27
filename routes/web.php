@@ -14,3 +14,9 @@ Route::put('/productos/{id}', [ProductController::class, 'update'])->name('produ
 Route::delete('/productos/{id}', [ProductController::class, 'destroy'])->name('productos.destroy');
 Route::post('/productos', [ProductController::class, 'store'])->name('productos.store');
 Route::get('/productos/crear', [ProductController::class, 'create'])->name('productos.create');
+
+
+Route::get('/reportes', function () {
+    return view('reportes.reportes');
+});
+
