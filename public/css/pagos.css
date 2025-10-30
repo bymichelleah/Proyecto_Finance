@@ -1,8 +1,8 @@
-/* base */
+/* 🎨 Base */
 :root {
     --bg: #f2f2f2;
     --card: #ffffff;
-    --accent: #7a42f4; /* morado pill */
+    --accent: #7a42f4;
     --accent-dark: #5b2bd9;
     --title: #0b0b0b;
     --muted: #6b6b6b;
@@ -12,6 +12,7 @@
 * {
     box-sizing: border-box;
 }
+
 body {
     font-family: "Inter", Arial, sans-serif;
     background: var(--bg);
@@ -19,29 +20,31 @@ body {
     color: #222;
 }
 
-/* container */
+/* 🧱 Contenedor principal */
 .page {
     max-width: 1200px;
     margin: 32px auto;
     padding: 0 28px;
 }
 
-/* header */
+/* 🏷️ Header */
 .page-header {
     margin-bottom: 28px;
 }
+
 .page-title {
     font-size: 48px;
     font-weight: 800;
     margin: 0 0 8px 0;
     color: var(--title);
 }
+
 .page-sub {
     color: var(--muted);
     margin: 0 0 18px 0;
 }
 
-/* info pill */
+/* 💜 Info pill */
 .info-pill {
     display: inline-flex;
     align-items: center;
@@ -57,6 +60,7 @@ body {
     box-shadow: 0 6px 20px rgba(122, 66, 244, 0.12);
     max-width: 100%;
 }
+
 .info-pill .pill-icon {
     width: 40px;
     height: 40px;
@@ -66,17 +70,21 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .info-pill .pill-text {
     font-size: 15px;
     line-height: 1.2;
 }
 
-/* columnas y filas */
+/* 🧾 Tabla */
 .pagos-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 15px;
     table-layout: fixed;
+    background: var(--card);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .pagos-table th,
@@ -88,16 +96,16 @@ body {
     height: 46px;
 }
 
-/* montos: texto y flechas alineados horizontalmente */
+/* Monto con íconos */
 .monto-min,
 .monto-max {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 6px; /* separación justa */
-    white-space: nowrap; /* evita que el texto se parta en dos líneas */
+    gap: 6px;
+    white-space: nowrap;
 }
 
-/* tamaño visual consistente de íconos */
 .monto-min svg,
 .monto-max svg {
     width: 14px;
@@ -105,9 +113,9 @@ body {
     flex-shrink: 0;
 }
 
-/* acciones */
+/* 👁️ Botón acción */
 .accion-ojo {
-    display: inline-flex; /* ✅ mantiene el botón ajustado al contenido */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     background: transparent;
@@ -128,6 +136,7 @@ body {
     transform: scale(1.05);
 }
 
+/* 🔲 Popup */
 .popup.hidden {
     display: none;
 }
@@ -159,6 +168,7 @@ body {
     z-index: 2;
 }
 
+/* Popup interno */
 .popup-header {
     display: flex;
     align-items: center;
@@ -192,6 +202,7 @@ body {
     gap: 20px;
 }
 
+/* 🔘 Botones */
 .btn {
     padding: 10px 20px;
     border-radius: 10px;
@@ -214,14 +225,72 @@ body {
     color: #222;
 }
 
-.btn svg {
-    width: 24px;
-    height: 24px;
-    stroke-width: 2;
-    margin-top: 1px; /* para centrarlo visualmente */
+/* 🔸 Responsive: versión móvil */
+@media (max-width: 768px) {
+    .page {
+        padding: 0 16px;
+        margin: 20px auto;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .info-pill {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: 10px;
+        padding: 14px 16px;
+    }
+
+    /* 👉 Tabla como tarjetas */
+    .pagos-table,
+    .pagos-table thead,
+    .pagos-table tbody,
+    .pagos-table th,
+    .pagos-table td,
+    .pagos-table tr {
+        display: block;
+        width: 100%;
+    }
+
+    .pagos-table thead {
+        display: none;
+    }
+
+    .pagos-table tr {
+        background: var(--card);
+        border: 1px solid var(--table-border);
+        border-radius: 12px;
+        margin-bottom: 18px;
+        padding: 16px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .pagos-table td {
+        text-align: left;
+        border: none;
+        padding: 8px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .pagos-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--muted);
+        flex-basis: 50%;
+        text-align: left;
+    }
+
+    .accion-ojo {
+        justify-content: flex-end;
+    }
 }
 
-/* Responsive */
+/* 📱 Popup responsive */
 @media (max-width: 480px) {
     .popup-card {
         width: 90%;

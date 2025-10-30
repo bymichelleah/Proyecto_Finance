@@ -8,7 +8,7 @@
 @section('contenido')
 <section class="modulo-reportes">
     <section class="titulo-productos">
-            <h1>Productos Registrados</h1>
+            <h1>Reportes Registrados</h1>
             <p class="info">En esta sección encontrarás la información de todo los reportes en gráficos en el sistema financiero.</p>
     </section>
 
