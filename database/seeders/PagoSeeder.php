@@ -26,11 +26,11 @@ class PagoSeeder extends Seeder
      Pago::create([
         'codigo' => '002',
         'cliente' => 'Jose Luis',
-        'producto' => 'Tarjeta de Debito',
+        'producto' => 'Tarjeta de Mastercad',
         'tipo' => 'Ahorro',
-        'fecha_pago' => '2025-12-25',
-        'monto_minimo' => 2800,
-        'monto_maximo' => 3600,
+        'fecha_pago' => '2025-12-22',
+        'monto_minimo' => 2000,
+        'monto_maximo' => 3000,
     ]);
 
     
