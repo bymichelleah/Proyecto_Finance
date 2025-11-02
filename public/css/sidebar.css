@@ -32,8 +32,7 @@
     transition: background 0.3s;
 }
 
-.links-modulos a:hover,
-.links-modulos a.active {
+.links-modulos a:hover{
     background: linear-gradient(to right, #3b38a0, #7a85c1);
     border-radius: 20px;
     color: white;

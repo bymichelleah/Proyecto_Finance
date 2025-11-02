@@ -8,3 +8,12 @@
 body{
     display: flex;
 }
+
+.contenido {
+    flex: 1;
+    justify-content: center;
+    height: 100vh;
+    padding: 40px 100px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
