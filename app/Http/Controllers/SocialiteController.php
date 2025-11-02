@@ -7,6 +7,7 @@ use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
+
 class SocialiteController extends Controller
 {
     public function redirect($provider)
@@ -37,7 +38,16 @@ class SocialiteController extends Controller
 
         Auth::login($user, true);
 
-        return redirect('/dashboard');
+        return redirect('/productos');
     }
+    public function destroy(Request $request)
+{
+    Auth::logout(); // Cierra la sesión del usuario autenticado
+    $request->session()->invalidate(); // Invalida la sesión
+    $request->session()->regenerateToken(); // Regenera el token CSRF
+
+    return redirect('/login'); // Redirige al login
+}
+
 }
 

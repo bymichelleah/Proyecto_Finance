@@ -1,6 +1,9 @@
 <?php
 use App\Http\Controllers\Api\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SocialiteController;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 //Pagos
 use App\Http\Controllers\PagoController;
 
@@ -16,6 +19,8 @@ Route::middleware('auth')->group(function () {
         return view('dashboard');
     });
 });
+
+Route::post('/logout', [SocialiteController::class, 'destroy'])->name('logout');
 
 /*Route::view('/productos', 'productos.index');*/
 Route::get('/productos', [ProductController::class, 'index'])->name('productos.index');
@@ -39,11 +44,3 @@ Route::get('/reportes', function () {
 Route::get('/pagos', [PagoController::class, 'index'])->name('pagos.index');
 Route::get('/pagos/{id}', [PagoController::class, 'show'])->name('pagos.show');
 Route::get('/pagos/{id}/pdf', [PagoController::class, 'descargarPDF'])->name('pagos.pdf');
-
-
-// GITHUB
-Route::get('login/github', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('auth.github');
-Route::get('login/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
-
-Route::get('login/google', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGoogle']);
-Route::get('login/google/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGoogleCallback']);
