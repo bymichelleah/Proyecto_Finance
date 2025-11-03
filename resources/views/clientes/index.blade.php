@@ -20,7 +20,7 @@
     <!-- Banner Informativo (adaptado de la estructura de productos) -->
     <p class="nota">
         {{-- Usando un placeholder de imagen similar al de productos --}}
-        <img src="{{ asset('img/clientes/bxs-message-square-detail.svg.png') }}" alt="icono">
+        <img src="{{ asset('img/productos/bxs-message-square-detail.svg.png') }}" alt="icono">
         Puedes visualizar sus datos, editar su información o gestionar sus productos adquiridos de manera rápida y segura.
     </p>
 </section>
@@ -90,7 +90,7 @@
                     <td>
                         <!-- Botón Editar -->
                         <a class="boton-editar" href="{{ route('clientes.edit', $cliente->id) }}">
-                            <img src="{{ asset('img/clientes/bx-edit-alt.svg.png') }}" alt="Editar">
+                            <img src="{{ asset('img/productos/bx-edit-alt.svg.png') }}" alt="icono">
                         </a>
 
                         <!-- Botón Eliminar (con confirmación simple) -->
@@ -100,14 +100,14 @@
                             {{-- NOTA: Se mantiene la sintaxis de confirmación por ser parte del código original de productos. --}}
                             <button class="boton-eliminar" type="submit"
                                 onclick="return confirm('¿Estás seguro de eliminar este registro?')">
-                                <img src="{{ asset('img/clientes/bx-trash.svg.png') }}" alt="Eliminar">
+                                <img src="{{ asset('img/productos/bx-trash.svg.png') }}" alt="icono">
                             </button>
                         </form>
 
                         <!-- Botón Detalles (Ver) -->
-                         <a class="boton-ver" href="#">
+                         <!--<a class="boton-ver" href="#">
                             <img src="{{ asset('img/clientes/bx-show.svg.png') }}" alt="Ver Detalles">
-                        </a>
+                        </a> -->
                     </td>
                 </tr>
             @endforeach

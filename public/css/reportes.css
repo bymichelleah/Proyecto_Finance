@@ -8,19 +8,111 @@
     color: #8B8B8B;
     font-size: 16px;
 }
+
 .modulo-reportes {
     background-color: white;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* contenido desde arriba */
+    justify-content: flex-start;
+    /* contenido desde arriba */
     gap: 10px;
     min-height: 100vh;
     box-sizing: border-box;
 }
 
 
-h1{
+h1 {
     color: #000000;
     font-size: 48px;
+}
+
+.modulo-reportes {
+    padding: 20px;
+}
+
+.titulo-productos h1 {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.titulo-productos .info {
+    text-align: left;
+    color: #333;
+}
+
+.contenedor-graficos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: 60rem;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #c8c8ff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #ddd;
+    text-align: left;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+/* Tamaños base de los gráficos */
+canvas {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 300px;
+}
+
+/* Gráfico grande (ocupa dos columnas en escritorio) */
+.card-grande {
+    grid-column: span 2;
+}
+
+/* ✅ RESPONSIVE (mobile) */
+@media (max-width: 768px) {
+    .contenedor-graficos {
+        grid-template-columns: 1fr;
+        /* una sola columna */
+        gap: 20px;
+        width: 100%;
+    }
+
+    .card-grande {
+        grid-column: span 1;
+        /* ya no se expande en mobile */
+    }
+
+    canvas {
+        max-height: 220px;
+        /* gráficos más pequeños */
+    }
+
+    .card h3 {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    canvas {
+        max-height: 180px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .titulo-productos h1 {
+        font-size: 1.2rem;
+    }
+
+    .titulo-productos .info {
+        font-size: 0.9rem;
+    }
 }
