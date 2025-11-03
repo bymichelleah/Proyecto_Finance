@@ -1,5 +1,5 @@
 # 💼 Finance
-
+<h1>¡Bienvenido(a) al Proyecto Finance <img src="https://raw.githubusercontent.com/iampavangandhi/iampavangandhi/master/gifs/Hi.gif" width="30px"> 🚀</h1>
 ## 📌 Descripción del Proyecto
 **Finance** es un sistema interno diseñado para optimizar la gestión financiera de entidades, garantizando **seguridad, confiabilidad y eficiencia** en cada proceso y transacción.  
 Su objetivo principal es consolidarse como una **solución digital moderna y líder** dentro del sector financiero.
@@ -51,10 +51,10 @@ Desarrollar un sistema interno **Finance** que optimice la gestión financiera d
 ---
 
 ## 👥 Equipo de Desarrollo
-- **Gian** – Backend y lógica de negocio  
-- **Michelle** – Integración de vistas y login  
-- **Damaris** – Módulo de clientes  
-- **Nathali** – Módulo de productos y reportes  
+- **[Gian](https://github.com/Huillcajs)** – Vista Login y Clientes  
+- **[Michelle](https://github.com/bymichelleah)** – Integración de vistas y Pagos  
+- **[Damaris](https://github.com/DamiCayetano)** – Vista de Productos  
+- **[Nathali](https://github.com/NathaliReyna)** – Vista de Reportes  
 
 ---
 
@@ -79,4 +79,3 @@ php artisan migrate
 
 # Iniciar el servidor local
 php artisan serve
-
