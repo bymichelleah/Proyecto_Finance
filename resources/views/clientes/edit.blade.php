@@ -10,25 +10,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Cliente: {{ $cliente->nombre }} {{ $cliente->apellido }}</title>
     <style>
-        /* Estilos Globales y Contenedores */
+        /* ============================== */
+        /* ESTILOS BASE (MOBILE-FIRST) */
+        /* ============================== */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4; /* Fondo gris claro */
             min-height: 100vh;
             margin: 0;
+            padding: 1rem; /* Padding general para móviles */
         }
         .main-wrapper {
             max-width: 1280px;
             margin: 0 auto;
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Columna por defecto (móvil) */
             gap: 2rem;
         }
         .form-col {
             background-color: white;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Sombra más suave en móvil */
             border-radius: 0.75rem;
-            padding: 2rem;
+            padding: 1.5rem; /* Padding reducido en móvil */
             width: 100%;
         }
         .sidebar-col {
@@ -37,43 +40,28 @@
             gap: 1.5rem;
             width: 100%;
         }
-        @media (min-width: 1024px) {
-            .main-wrapper {
-                flex-direction: row;
-            }
-            .form-col {
-                width: 66.666%; /* 2/3 */
-            }
-            .sidebar-col {
-                width: 33.333%; /* 1/3 */
-            }
-        }
 
         /* Tipografía y Encabezado */
         h1 {
-            font-size: 1.875rem;
+            font-size: 1.5rem; /* Título más pequeño en móvil */
             font-weight: bold;
             color: #1f2937;
             margin-bottom: 0.5rem;
         }
         header p {
+            font-size: 0.875rem; /* Subtítulo más pequeño en móvil */
             color: #6b7280;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
             border-bottom: 1px solid #e5e7eb;
         }
 
         /* Formulario y Grid */
         .form-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr; /* Una columna por defecto */
             gap: 1rem;
             margin-bottom: 1rem;
-        }
-        @media (min-width: 640px) {
-            .form-grid {
-                grid-template-columns: 1fr 1fr;
-            }
         }
         .full-width {
             grid-column: 1 / -1;
@@ -88,11 +76,12 @@
             margin-bottom: 0.25rem;
         }
         input, select, textarea {
+            /* ... (Estilos de campo ya eran responsivos) ... */
             display: block;
             width: 100%;
             margin-top: 0.25rem;
             padding: 0.625rem 0.75rem;
-            background-color: #f3f4f6; /* Fondo gris en inputs */
+            background-color: #f3f4f6;
             border: 1px solid #d1d5db;
             border-radius: 0.5rem;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -102,115 +91,87 @@
             border-color: #3b82f6;
             box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
         }
-        .date-input-wrapper {
-            position: relative;
-        }
-        .date-icon {
-            position: absolute;
-            right: 0.75rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6b7280;
-            pointer-events: none;
-            margin-top: 0.125rem;
-        }
         
         /* Botones */
         .button-group {
             display: flex;
-            justify-content: flex-end; /* A la derecha como el original */
-            gap: 1rem;
+            justify-content: space-between; /* Ajustado para que los botones llenen el ancho en móvil */
+            gap: 0.75rem;
             padding-top: 1.5rem;
             border-top: 1px solid #e5e7eb;
             margin-top: 1.5rem;
         }
         .btn {
             font-weight: 600;
-            padding: 0.5rem 1.5rem;
+            padding: 0.5rem 1rem;
             border-radius: 0.5rem;
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: background-color 0.15s;
+            flex-grow: 1; /* Permite que los botones se estiren en móvil */
+            text-align: center;
+            text-decoration: none; /* Para el <a> Cancelar */
         }
         .btn-update {
-            background-color: #4f46e5; /* Índigo */
+            background-color: #4f46e5;
             color: white;
-        }
-        .btn-update:hover {
-            background-color: #4338ca;
         }
         .btn-cancel {
-            background-color: #d1d5db; /* Gris */
+            background-color: #d1d5db;
             color: #1f2937;
         }
-        .btn-cancel:hover {
-            background-color: #9ca3af;
+
+        /* ============================== */
+        /* MEDIA QUERY (TABLET & DESKTOP) */
+        /* ============================== */
+        @media (min-width: 80%) { /* breakpoint sm */
+            .form-grid {
+                grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas más anchas */
+            }
+            .button-group {
+                justify-content: flex-end; /* Vuelve a alinear a la derecha en tablet/desktop */
+                flex-grow: 0;
+            }
+            .btn {
+                flex-grow: 0; /* Desactiva el estiramiento en desktop */
+                padding: 0.5rem 1.5rem;
+            }
         }
 
-        /* Sidebar (Banner y Upload) */
-        .banner-container {
-            background-color: #e5e7eb;
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        @media (min-width: 1024px) { /* breakpoint lg */
+            body {
+                padding: 2.5rem 1.5rem; /* Más padding en desktop */
+            }
+            .main-wrapper {
+                flex-direction: row; /* Diseño de dos columnas */
+            }
+            .form-col {
+                width: 66.666%; /* 2/3 */
+                padding: 2.5rem;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            .sidebar-col {
+                width: 33.333%; /* 1/3 */
+            }
+            h1 {
+                font-size: 1.875rem;
+            }
         }
-        .banner-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .banner-note {
-            padding: 1rem;
-            background-color: #f3e8ff;
-            color: #6d28d9;
-            font-size: 0.875rem;
-        }
-        .upload-box {
-            background-color: #3b82f6; /* Azul */
-            color: white;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            text-align: center;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 150px;
-            transition: background-color 0.15s;
-        }
-        .upload-box:hover {
-            background-color: #2563eb;
-        }
-        .upload-icon {
-            font-size: 3rem;
-            margin-bottom: 0.75rem;
-        }
-        .upload-text-main {
-            font-weight: bold;
-            font-size: 1.125rem;
-        }
-        .upload-text-sub {
-            font-size: 0.875rem;
-            color: #bfdbfe;
-        }
-        
-        /* Errores de Validación */
-        .error-message {
-            background-color: #fee2e2;
-            border-left: 4px solid #ef4444;
-            color: #b91c1c;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .error-list {
-            list-style: disc;
-            margin-top: 0.5rem;
-            padding-left: 20px;
-        }
+
+        /* Otros Estilos (Sin cambios importantes en responsive) */
+        .date-input-wrapper { position: relative; }
+        .date-icon { position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); color: #6b7280; pointer-events: none; margin-top: 0.125rem; }
+        .banner-container { background-color: #e5e7eb; border-radius: 0.5rem; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .banner-image { width: 100%; height: auto; display: block; }
+        .banner-note { padding: 1rem; background-color: #f3e8ff; color: #6d28d9; font-size: 0.875rem; }
+        .upload-box { background-color: #3b82f6; color: white; padding: 1.5rem; border-radius: 0.5rem; text-align: center; cursor: pointer; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 150px; transition: background-color 0.15s; }
+        .upload-box:hover { background-color: #2563eb; }
+        .upload-icon { font-size: 3rem; margin-bottom: 0.75rem; }
+        .upload-text-main { font-weight: bold; font-size: 1.125rem; }
+        .upload-text-sub { font-size: 0.875rem; color: #bfdbfe; }
+        .error-message { background-color: #fee2e2; border-left: 4px solid #ef4444; color: #b91c1c; padding: 1rem; border-radius: 0.5rem; margin-bottom: 1.5rem; }
+        .error-list { list-style: disc; margin-top: 0.5rem; padding-left: 20px; }
     </style>
 </head>
 <body>
@@ -305,6 +266,13 @@
                     </select>
                 </div>
                 
+                <div>
+                    <label for="fecha_creacion">Fecha de Creación</label>
+                    <div class="date-input-wrapper">
+                        <input type="date" id="fecha_creacion" name="fecha_creacion" value="{{ old('fecha_creacion', $cliente->created_at->toDateString()) }}" readonly>
+                        <span class="date-icon">🗓️</span>
+                    </div>
+                </div>
 
             </div>
             

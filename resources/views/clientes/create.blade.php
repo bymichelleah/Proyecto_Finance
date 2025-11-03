@@ -10,208 +10,197 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Nuevo Cliente</title>
     <style>
-        /* Estilos Globales y Contenedores */
+        /* ============================== */
+        /* 1. ESTILOS BASE (MOBILE-FIRST) */
+        /* ============================== */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4; /* bg-gray-100 */
+            background-color: #f4f4f4;
             min-height: 100vh;
             margin: 0;
+            padding: 1rem; /* Padding general para móviles */
         }
         .main-wrapper {
-            max-width: 1280px; /* max-w-6xl */
-            margin: 0 auto; /* mx-auto */
+            max-width: 1280px;
+            margin: 0 auto;
             background-color: white;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* shadow-2xl */
-            border-radius: 0.75rem; /* rounded-xl */
-            padding: 1.5rem; /* p-6 */
+            /* Sombra más ligera para móvil */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+            border-radius: 0.75rem; 
+            padding: 1.25rem; /* Padding reducido en móvil */
+            display: flex;
+            flex-direction: column; /* Apilado en móvil */
+            gap: 1.5rem; /* Gap reducido */
+        }
+        .form-col {
+            width: 100%; /* Ocupa todo el ancho en móvil */
+        }
+        .sidebar-col {
             display: flex;
             flex-direction: column;
-            gap: 2rem; /* gap-8 */
-        }
-        @media (min-width: 1024px) {
-            .main-wrapper {
-                flex-direction: row; /* lg:flex-row */
-                padding: 2.5rem; /* lg:p-10 */
-            }
-            .form-col {
-                width: 66.666%; /* lg:w-2/3 */
-            }
-            .sidebar-col {
-                width: 33.333%; /* lg:w-1/3 */
-            }
+            gap: 1.5rem;
+            width: 100%;
         }
         
         /* Tipografía y Encabezado */
         h1 {
-            font-size: 1.875rem; /* text-3xl */
-            font-weight: 800; /* font-extrabold */
-            color: #1f2937; /* text-gray-800 */
-            margin-bottom: 1.5rem; /* mb-6 */
-            padding-bottom: 1rem; /* pb-4 */
+            font-size: 1.5rem; /* Título más pequeño en móvil */
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 1rem; /* mb-4 */
+            padding-bottom: 0.75rem; /* pb-3 */
+            border-bottom: 1px solid #e5e7eb;
         }
         
         /* Formulario y Grid */
         .form-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem; /* gap-4 */
-            margin-bottom: 1.5rem; /* mb-6 */
-        }
-        @media (min-width: 640px) {
-            .form-grid {
-                grid-template-columns: 1fr 1fr; /* sm:grid-cols-2 */
-            }
+            grid-template-columns: 1fr; /* Una sola columna en móvil */
+            gap: 0.75rem; /* Gap más ajustado */
+            margin-bottom: 1rem; /* mb-4 */
         }
         .full-width {
-            grid-column: 1 / -1; /* sm:col-span-2 */
+            grid-column: 1 / -1;
         }
         
         /* Estilos de Campos de Entrada */
         label {
             display: block;
-            font-size: 0.875rem; /* text-sm */
-            font-weight: 500; /* font-medium */
-            color: #374151; /* text-gray-700 */
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
             margin-bottom: 0.25rem;
         }
         input, select {
+            /* Se mantienen los estilos de relleno de ancho y padding razonable */
             display: block;
             width: 100%;
-            margin-top: 0.25rem; /* mt-1 */
-            padding: 0.625rem 0.75rem; /* p-2.5 */
-            background-color: #f3f4f6; /* bg-gray-100 */
-            border: 1px solid #d1d5db; /* border-gray-300 */
-            border-radius: 0.5rem; /* rounded-lg */
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+            margin-top: 0.25rem;
+            padding: 0.5rem 0.75rem; /* Padding ajustado */
+            background-color: #f3f4f6;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
+            font-size: 0.9rem;
+            box-sizing: border-box;
         }
         input:focus, select:focus {
             outline: none;
-            border-color: #3b82f6; /* focus:border-blue-500 */
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); /* focus:ring-blue-500 */
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
         }
         .error-field {
-            border-color: #ef4444 !important; /* border-red-500 */
+            border-color: #ef4444 !important;
         }
-        .date-input-wrapper {
-            position: relative;
-        }
-        .date-icon {
-            position: absolute;
-            right: 0.75rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6b7280; /* text-gray-500 */
-            pointer-events: none;
-            margin-top: 0.125rem; /* mt-2.5 */
-        }
-
+        
         /* Botones */
         .button-group {
             display: flex;
-            gap: 1rem; /* space-x-4 */
-            padding-top: 1.5rem; /* pt-6 */
-            border-top: 1px solid #e5e7eb; /* border-t */
-            margin-top: 1rem; /* mt-4 */
+            flex-direction: column; /* Apilados verticalmente en móvil */
+            gap: 0.75rem; /* Espacio ajustado */
+            padding-top: 1rem; /* pt-4 */
+            border-top: 1px solid #e5e7eb;
+            margin-top: 1rem;
         }
         .btn {
             display: flex;
             align-items: center;
-            font-weight: 600; /* font-semibold */
-            padding: 0.5rem 1.5rem; /* py-2 px-6 */
-            border-radius: 0.5rem; /* rounded-lg */
+            justify-content: center; /* Centrar texto en botón */
+            font-weight: 600;
+            padding: 0.75rem 1.5rem; /* Más padding para fácil toque */
+            border-radius: 0.5rem;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow */
-            transition: background-color 0.15s ease-in-out; /* transition duration-150 ease-in-out */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.15s ease-in-out;
+            width: 100%; /* Ocupa todo el ancho */
+            box-sizing: border-box;
         }
         .btn-register {
-            background-color: #10b981; /* bg-green-500 */
+            background-color: #10b981;
             color: white;
         }
-        .btn-register:hover {
-            background-color: #059669; /* hover:bg-green-600 */
-        }
         .btn-clear {
-            background-color: #e5e7eb; /* bg-gray-200 */
-            color: #374151; /* text-gray-700 */
-        }
-        .btn-clear:hover {
-            background-color: #d1d5db; /* hover:bg-gray-300 */
+            background-color: #e5e7eb;
+            color: #374151;
         }
         
-        /* Sidebar (Banner y Upload) */
-        .sidebar-col {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem; /* space-y-6 */
-        }
+        /* Sidebar (Banner y Upload) - Se apilan y ocupan 100% en móvil */
         .banner-container {
-            background-color: #e5e7eb; /* bg-gray-200 */
-            border-radius: 0.5rem; /* rounded-lg */
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* shadow-md */
             flex-shrink: 0;
             width: 100%;
         }
-        .banner-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .banner-note {
-            padding: 1rem; /* p-4 */
-            background-color: #f3e8ff; /* bg-purple-100 */
-            color: #6d28d9; /* text-purple-800 */
-            font-size: 0.875rem; /* text-sm */
-        }
         .upload-box {
-            flex-grow: 1; /* flex-grow */
-            background-color: #3b82f6; /* bg-blue-500 */
-            color: white;
-            padding: 1.5rem; /* p-6 */
-            border-radius: 0.5rem; /* rounded-lg */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); /* shadow-md */
-            transition: background-color 0.15s ease-in-out;
+            min-height: 150px; /* Asegurar que tenga un tamaño clickeable */
         }
-        .upload-box:hover {
-            background-color: #2563eb; /* hover:bg-blue-600 */
-        }
-        .upload-icon {
-            font-size: 3rem; /* text-6xl (ajustado) */
-            margin-bottom: 0.75rem; /* mb-3 */
-        }
-        .upload-text-main {
-            font-weight: 600; /* font-semibold */
-            font-size: 1.125rem; /* text-lg */
-        }
-        .upload-text-sub {
-            font-size: 0.875rem; /* text-sm */
-            color: rgba(219, 234, 254, 0.8); /* Ajuste para text-blue-100 */
-        }
-        
-        /* Errores de Validación */
+
+        /* Errores de Validación (se mantienen funcionales) */
         .error-message {
-            background-color: #fee2e2; /* bg-red-100 */
-            border-left: 4px solid #ef4444; /* border-l-4 border-red-500 */
-            color: #b91c1c; /* text-red-700 */
-            padding: 1rem; /* p-4 */
-            border-radius: 0.5rem; /* rounded-lg */
-            margin-bottom: 1.5rem; /* mb-6 */
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            color: #b91c1c;
+            padding: 0.75rem; /* Ajuste para móvil */
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
         }
         .error-list {
             list-style: disc;
             margin-top: 0.5rem;
             padding-left: 20px;
+        }
+
+        /* ============================== */
+        /* 2. MEDIA QUERIES (TABLET & DESKTOP) */
+        /* ============================== */
+
+        /* Tablet (sm breakpoint) */
+        @media (min-width: 640px) {
+            .form-grid {
+                grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas más anchas */
+            }
+            .button-group {
+                flex-direction: row; /* Botones vuelven a ser horizontales */
+                justify-content: flex-start;
+                gap: 1rem;
+            }
+            .btn {
+                width: auto; /* Desactivar ancho 100% */
+            }
+            .error-message {
+                padding: 1rem;
+            }
+        }
+
+        /* Desktop (lg breakpoint) */
+        @media (min-width: 1024px) {
+            body {
+                padding: 0px /* Más padding alrededor */
+            }
+            .main-wrapper {
+                flex-direction: row; /* Diseño de dos columnas */
+                padding: 2.5rem;
+                gap: 2rem;
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .form-col {
+                width: 66.666%; /* 2/3 */
+            }
+            .sidebar-col {
+                width: 33.333%; /* 1/3 */
+            }
+            h1 {
+                font-size: 1.875rem; /* Vuelve al tamaño de desktop */
+                margin-bottom: 1.5rem;
+                padding-bottom: 1rem;
+            }
+            input, select {
+                padding: 0.625rem 0.75rem;
+            }
         }
     </style>
 </head>
@@ -350,6 +339,17 @@
         </div>
 
     </div>
+
+    <script>
+        // Simple script para la función "Limpiar"
+        document.querySelector('.btn-clear').addEventListener('click', function() {
+            document.querySelector('form').reset();
+            // Opcional: remover clases de error
+            document.querySelectorAll('.error-field').forEach(function(el) {
+                el.classList.remove('error-field');
+            });
+        });
+    </script>
 </body>
 </html>
 @endsection
