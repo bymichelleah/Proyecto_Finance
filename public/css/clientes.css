@@ -1,0 +1,384 @@
+/* ============================== */
+/* 1. Estilos Base (Mobile-First) */
+/* Se aplican a todas las pantallas, especialmente móviles (< 768px) */
+/* ============================== */
+
+/* Contenedor principal del módulo */
+.modulo-clientes {
+    background-color: white;
+    padding: 15px; /* Reducido para móvil */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Reducido para móvil */
+}
+
+.contenido-clientes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Reducido para móvil */
+}
+
+.titulo-clientes {
+    display: flex;
+    flex-direction: column;
+    gap: 3px; /* Reducido para móvil */
+}
+
+.contenido-clientes h1 {
+    color: #000000;
+    font-size: 28px; /* Tamaño de título más pequeño para móvil */
+    margin: 0;
+}
+
+.info {
+    color: #8B8B8B;
+    font-size: 14px; /* Tamaño de texto más pequeño para móvil */
+}
+
+/* Nota (se mantiene visible en móvil) */
+.nota {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: #7F55FA;
+    padding: 10px; /* Reducido */
+    border-radius: 15px; /* Reducido */
+    color: white;
+    font-size: 14px;
+}
+
+/* Sección de Filtros */
+.filtros {
+    display: flex;
+    flex-direction: column; /* Apilado verticalmente en móvil */
+    gap: 15px;
+    align-items: stretch; /* Permite que los elementos llenen el ancho */
+}
+
+.filtros input {
+    color: #949494;
+    border: solid 1px #949494;
+    border-radius: 20px;
+    font-size: 14px;
+    padding: 12px 12px; /* Reducido el padding vertical */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Importante para el padding */
+}
+
+.botones {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones salten de línea */
+    gap: 10px; /* Reducido el espacio entre botones */
+    justify-content: space-between; /* Distribución uniforme */
+}
+
+/* Estilos para todos los botones de filtro/acción */
+.filtar,
+.listar,
+.crear-nuevo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Reducido el espacio de icono */
+    padding: 10px; /* Reducido el padding */
+    border-radius: 15px; /* Reducido */
+    text-decoration: none;
+    font-size: 14px;
+    flex-grow: 1; /* Permite que los botones se estiren */
+    min-width: 100px; /* Mínimo para que el texto quepa */
+}
+
+.filtar {
+    background-color: #040404;
+    color: white;
+}
+
+.listar {
+    background-color: #BABABA;
+    color: white;
+}
+
+.crear-nuevo {
+    background-color: #4F51AB;
+    color: white;
+}
+
+/* ============================== */
+/* 2. Estilos de la Tabla (Table) */
+/* Se ajustan para ser más compactos en móvil */
+/* Nota: Las tablas son difíciles en móvil, considera usar una vista de tarjeta si hay muchas columnas. */
+/* ============================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Desactivar el box-shadow para móviles si es muy pesado: */
+    /* box-shadow: none; */
+}
+
+table thead tr {
+    /* Mantener encabezado */
+    background-color: #f5f5f5;
+    color: #242424;
+    font-size: 12px; /* Fuente más pequeña */
+    text-align: center;
+    font-weight: bold;
+}
+
+table thead th {
+    padding: 8px 5px; /* Padding reducido */
+    border-bottom: 2px solid #ddd;
+}
+
+table tbody td {
+    text-align: center;
+    color: #000000;
+    font-size: 12px; /* Fuente más pequeña */
+    padding: 8px 5px; /* Padding reducido */
+    vertical-align: middle;
+}
+
+/* Los botones de eliminar/editar dentro de la tabla */
+.boton-eliminar,
+.boton-editar {
+    border: none;
+    padding: 4px; /* Padding mínimo para que sean clickeables */
+    display: inline-block;
+}
+
+/* ============================== */
+/* 3. Estilos de Edición/Formulario (Mobile-First) */
+/* ============================== */
+
+.editar-producto {
+    padding: 15px;
+    display: flex;
+    flex-direction: column; /* Apilado en móvil */
+    gap: 20px; /* Reducido */
+}
+
+.formulario-editar {
+    width: 100%; /* Ocupa todo el ancho */
+}
+
+.formulario-editar h2 {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Reducido */
+    color: #282828;
+    font-size: 24px; /* Título más pequeño */
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Reducido */
+}
+
+.campos {
+    display: flex;
+    flex-direction: column; /* Apilado en móvil */
+    gap: 15px; /* Reducido */
+}
+
+.mb-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Reducido */
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.mb-3 label {
+    color: #3E4453;
+    font-size: 14px;
+}
+
+.mb-3 input,
+select,
+textarea {
+    border: solid 1px #D5D9E4;
+    border-radius: 6px;
+    padding: 10px; /* Reducido */
+    width: 100%; /* Ocupa todo el ancho */
+    max-width: 100%; /* Asegura que no sobrepase el contenedor */
+    height: auto;
+    min-height: 40px; /* Altura mínima más pequeña */
+    font-size: 14px;
+    color: #3E4453;
+    box-sizing: border-box; /* Incluye padding/border en el ancho total */
+}
+
+.campos textarea {
+    min-height: 80px; /* Un poco más de espacio para texto */
+}
+
+.editar-botones {
+    display: flex;
+    flex-direction: column; /* Apilado en móvil */
+    gap: 10px;
+    align-items: stretch; /* Se estiran para llenar el ancho */
+}
+
+.boton-actualizar,
+.boton-eliminar-formulario {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 10px; /* Padding ligeramente reducido */
+    gap: 8px;
+    font-size: 15px;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    width: 100%; /* Ocupa todo el ancho */
+    box-sizing: border-box;
+}
+
+.upload-box {
+    width: 100%; /* Ocupa todo el ancho */
+    height: 150px; /* Altura ligeramente reducida */
+    background: linear-gradient(to bottom, #66ccff, #00aaff);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    border: 2px dashed white;
+}
+
+.upload-box img {
+    width: 40px; /* Imagen más pequeña */
+    margin-bottom: 8px;
+}
+
+.upload-box p {
+    margin: 3px 0;
+    font-size: 14px; /* Texto más pequeño */
+}
+
+
+/* ============================== */
+/* 4. Media Query (Desktop/PC) */
+/* Se aplica solo a pantallas con ancho mayor o igual a 768px */
+/* ============================== */
+
+@media (min-width: 768px) {
+    /* Módulo Clientes */
+    .modulo-clientes {
+        padding: 20px;
+        gap: 60px;
+    }
+
+    .contenido-clientes h1 {
+        font-size: 48px; /* Tamaño original para desktop */
+    }
+
+    .info {
+        font-size: 16px;
+    }
+
+    /* Filtros (Vuelve a ser horizontal) */
+    .filtros {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .filtros input {
+        width: 388px; /* Ancho fijo original */
+        font-size: 15px;
+        padding: 15px 12px;
+    }
+
+    .botones {
+        flex-wrap: nowrap;
+        gap: 15px;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .filtar,
+    .listar,
+    .crear-nuevo {
+        padding: 12px;
+        font-size: 15px;
+        flex-grow: 0; /* Desactiva el estiramiento */
+        min-width: auto;
+    }
+
+    /* Formulario Editar (Vuelve a ser horizontal) */
+    .editar-producto {
+        padding: 20px;
+        flex-direction: row; /* Horizontal en desktop */
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .formulario-editar h2 {
+        font-size: 40px;
+        gap: 30px;
+    }
+
+    form {
+        gap: 30px;
+    }
+
+    .campos {
+        flex-direction: row; /* Vuelve a ser horizontal */
+        gap: 20px;
+    }
+
+    .mb-3 {
+        gap: 10px;
+        flex: 1; /* Ocupa el espacio igual */
+    }
+
+    .mb-3 input,
+    select,
+    textarea {
+        padding: 12px 10px;
+        max-width: 271.5px; /* Vuelve al ancho fijo original */
+        height: 48px;
+        font-size: 15px;
+    }
+
+    .campos textarea {
+        min-height: 48px;
+    }
+
+    .editar-botones {
+        flex-direction: row; /* Horizontal en desktop */
+        gap: 16px;
+        align-items: center;
+    }
+
+    .boton-actualizar,
+    .boton-eliminar-formulario {
+        padding: 16px 10px;
+        font-size: 16px;
+        width: 106px; /* Vuelve al ancho fijo original */
+        flex-grow: 0;
+    }
+
+    .upload-box {
+        width: 559px; /* Vuelve al ancho fijo original */
+        height: 172px;
+    }
+
+    .upload-box img {
+        width: 50px;
+    }
+
+    .upload-box p {
+        font-size: 16px;
+    }
+}

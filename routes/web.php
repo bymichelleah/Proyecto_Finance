@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SocialiteController;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +31,12 @@ Route::delete('/productos/{id}', [ProductController::class, 'destroy'])->name('p
 Route::post('/productos', [ProductController::class, 'store'])->name('productos.store');
 Route::get('/productos/crear', [ProductController::class, 'create'])->name('productos.create');
 
-
+Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes.index');
+Route::get('/clientes/{id}/editar', [ClienteController::class, 'edit'])->name('clientes.editar');
+Route::put('/clientes/{id}', [ClienteController::class, 'update'])->name('clientes.update');
+Route::delete('/clientes/{id}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
+Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store');
+Route::get('/clientes/crear', [ClienteController::class, 'create'])->name('clientes.create');
 Route::post('/login', function () {
     // Aquí simplemente redirige a productos
     return redirect('/productos');
@@ -44,3 +50,5 @@ Route::get('/reportes', function () {
 Route::get('/pagos', [PagoController::class, 'index'])->name('pagos.index');
 Route::get('/pagos/{id}', [PagoController::class, 'show'])->name('pagos.show');
 Route::get('/pagos/{id}/pdf', [PagoController::class, 'descargarPDF'])->name('pagos.pdf');
+Route::resource('clientes', ClienteController::class);
+

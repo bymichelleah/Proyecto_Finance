@@ -17,3 +17,9 @@ body{
     box-sizing: border-box;
     overflow-y: auto;
 }
+
+@media (max-width: 517px) {
+  .contenido {
+    padding: 20px;
+  }
+}
