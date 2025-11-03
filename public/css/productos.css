@@ -26,13 +26,15 @@
 .info {
     color: #8B8B8B;
     font-size: 16px;
-}
+} 
 
 .nota {
     display: flex;
     gap: 10px;
     align-items: center;
     background-color: #7F55FA;
+    max-width: 1027px;
+    height: 54px;
     padding: 15px 12px;
     border-radius: 20px;
     color: white;
@@ -50,7 +52,8 @@
     border-radius: 20px;
     font-size: 15px;
     padding: 15px 12px;
-    width: 388px;
+    width: 100%;
+    max-width: 388px;
 }
 
 .botones {
@@ -228,6 +231,18 @@ textarea {
     color: white;
     border: none;
     width: 106px;
+}
+
+.boton-crear {
+    display: flex;
+    align-items: center;
+    background-color: #5DF227;
+    padding: 16px 10px;
+    gap: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    color: white;
+    border: none;
 }
 
 .boton-eliminar-formulario {

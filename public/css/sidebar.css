@@ -1,42 +1,123 @@
 .sidebar {
-    background-color: rgb(255, 255, 255);         
-    padding: 20px;                  
+    background-color: #fff;
+    padding: 20px;
     display: flex;
-    flex-direction: column;         
-    justify-content: space-between; 
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    width: 223px;                   
-    height: 100vh;                  
-    box-sizing: border-box;         
+    width: 223px;
+    height: 100vh;
+    box-sizing: border-box;
 }
 
-.modulos{
+.modulos {
     display: flex;
     flex-direction: column;
     gap: 54px;
 }
 
-.links-modulos{
+.links-modulos {
     display: flex;
     flex-direction: column;
     gap: 35px;
 }
 
-.links-modulos a{
+.links-modulos a {
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 12px;
     text-decoration: none;
     color: #282828;
+    transition: background 0.3s;
 }
 
 .links-modulos a:hover{
-    background: linear-gradient(to right, #3B38A0, #7A85C1);
+    background: linear-gradient(to right, #3b38a0, #7a85c1);
     border-radius: 20px;
     color: white;
 }
 
-.links-modulos svg:hover{
-    color: white;
+.links-modulos svg {
+    width: 24px;
+    height: 24px;
+}
+
+.cerrar-sesion a {
+    text-decoration: none;
+    color: #3b38a0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+/* ---------- MOBILE VERSION ---------- */
+@media (max-width: 768px) {
+    /* 🔹 Cerrar sesión */
+    /* 🔸 Mobile view */
+    @media (max-width: 768px) {
+        .sidebar {
+            flex-direction: row;
+            width: 100%;
+            height: 70px;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        .logo {
+            display: none;
+        }
+
+        .modulos {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .links-modulos {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            width: 100%;
+        }
+
+        .links-modulos a span,
+        .cerrar-sesion span {
+            display: none;
+        }
+
+        .links-modulos a,
+        .cerrar-sesion a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            color: #333;
+            padding: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .links-modulos a:hover,
+        .cerrar-sesion a:hover {
+            transform: scale(1.1);
+        }
+
+        .cerrar-sesion {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 }

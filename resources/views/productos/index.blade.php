@@ -21,7 +21,7 @@
     </section>
 
     <section class="filtros">
-        <input type="text" placeholder="Buscar Producto">
+        <input type="text" id="buscarProducto" placeholder="Buscar Producto">
         <section class="botones">
             <a class="filtar" href="">
                 <img src="{{ asset('img/productos/bx-filter.svg.png') }}" alt="icono">
@@ -38,7 +38,7 @@
         </section>
     </section>
 
-    <table cellpadding="10">
+    <table cellpadding="10" id="tablaProductos">
         <thead>
             <tr>
                 <th>Código</th>
@@ -88,5 +88,20 @@
             @endforeach
         </tbody>
     </table>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('buscarProducto');
+            const filas = document.querySelectorAll('#tablaProductos tbody tr');
+
+            input.addEventListener('keyup', function() {
+                const texto = this.value.toLowerCase();
+
+                filas.forEach(fila => {
+                    const contenidoFila = fila.textContent.toLowerCase();
+                    fila.style.display = contenidoFila.includes(texto) ? '' : 'none';
+                });
+            });
+        });
+    </script>
 </section>
 @endsection

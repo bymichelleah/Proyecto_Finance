@@ -1,0 +1,274 @@
+/* 🎨 Base */
+:root {
+    --bg: #f2f2f2;
+    --card: #ffffff;
+    --accent: #7a42f4;
+    --accent-dark: #5b2bd9;
+    --title: #0b0b0b;
+    --muted: #6b6b6b;
+    --table-border: rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+    background: var(--bg);
+    margin: 0;
+    color: #222;
+}
+
+/* 🧱 Contenedor principal */
+
+/* 🏷️ Header */
+.page-header {
+    margin-bottom: 28px;
+}
+
+.page-title {
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0 0 8px 0;
+    color: var(--title);
+}
+
+.page-sub {
+    color: var(--muted);
+    margin: 0 0 18px 0;
+}
+
+.pill-text{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: #7F55FA;
+    max-width: 1027px;
+    height: 54px;
+    padding: 15px 12px;
+    border-radius: 20px;
+    color: white;
+}
+
+/* 🧾 Tabla */
+.pagos-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    table-layout: fixed;
+    background: var(--card);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.pagos-table th,
+.pagos-table td {
+    border-bottom: 1px solid var(--table-border);
+    text-align: center;
+    padding: 14px 10px;
+    vertical-align: middle;
+    height: 46px;
+}
+
+/* Monto con íconos */
+.monto-min,
+.monto-max {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.monto-min svg,
+.monto-max svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+/* 👁️ Botón acción */
+.accion-ojo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.accion-ojo svg {
+    width: 18px;
+    height: 18px;
+}
+
+.accion-ojo:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: scale(1.05);
+}
+
+/* 🔲 Popup */
+.popup.hidden {
+    display: none;
+}
+
+.popup {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+}
+
+.popup-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.popup-card {
+    position: relative;
+    width: 360px;
+    max-width: 95%;
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px;
+    text-align: left;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    z-index: 2;
+}
+
+/* Popup interno */
+.popup-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.popup-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.popup-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.popup-body p {
+    margin: 6px 0;
+    color: #222;
+    font-size: 15px;
+}
+
+.popup-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* 🔘 Botones */
+.btn {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #5c6bf1, #6a82fb);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: #f0f0f0;
+    color: #222;
+}
+
+/* 🔸 Responsive: versión móvil */
+@media (max-width: 768px) {
+    .page {
+        padding: 0 16px;
+        margin: 20px auto;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .info-pill {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: 10px;
+        padding: 14px 16px;
+    }
+
+    /* 👉 Tabla como tarjetas */
+    .pagos-table,
+    .pagos-table thead,
+    .pagos-table tbody,
+    .pagos-table th,
+    .pagos-table td,
+    .pagos-table tr {
+        display: block;
+        width: 100%;
+    }
+
+    .pagos-table thead {
+        display: none;
+    }
+
+    .pagos-table tr {
+        background: var(--card);
+        border: 1px solid var(--table-border);
+        border-radius: 12px;
+        margin-bottom: 18px;
+        padding: 16px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .pagos-table td {
+        text-align: left;
+        border: none;
+        padding: 8px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .pagos-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--muted);
+        flex-basis: 50%;
+        text-align: left;
+    }
+
+    .accion-ojo {
+        justify-content: flex-end;
+    }
+}
+
+/* 📱 Popup responsive */
+@media (max-width: 480px) {
+    .popup-card {
+        width: 90%;
+        padding: 20px;
+    }
+}

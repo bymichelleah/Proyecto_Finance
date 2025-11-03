@@ -1,11 +1,21 @@
 <?php
-
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
+//Pagos
+use App\Http\Controllers\PagoController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
+});
+
+Route::get('auth/{provider}', [SocialiteController::class, 'redirect']);
+Route::get('auth/{provider}/callback', [SocialiteController::class, 'callback']);
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    });
 });
 
 /*Route::view('/productos', 'productos.index');*/

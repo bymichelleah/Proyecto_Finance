@@ -13,7 +13,7 @@
         {{-- INCLUIMOS EL SIDEBAR --}}
         @include('partials.sidebar')
     
-    <section>
+    <section class="contenido">
         @yield('contenido')
     </section>
 </body>
