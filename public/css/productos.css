@@ -34,7 +34,6 @@
     align-items: center;
     background-color: #7F55FA;
     max-width: 1027px;
-    height: 54px;
     padding: 15px 12px;
     border-radius: 20px;
     color: white;
@@ -299,3 +298,86 @@ textarea {
 input[type="file"] {
     display: none;
 }
+
+@media (max-width: 517px) {
+  .nota p {
+    font-size: 14px;
+    width: 437px;
+  }
+
+  .titulo-productos h1{
+    font-size: 32px;
+  }
+
+  .modulo-productos{
+    padding: 0px;
+  }
+
+  .filtros{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .modulo-productos img{
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Ocultar columnas: Tipo, Tasa, Plazo, Monto Mínimo y Monto Máximo */
+  #tablaProductos th:nth-child(3),
+  #tablaProductos th:nth-child(4),
+  #tablaProductos th:nth-child(5),
+  #tablaProductos th:nth-child(6),
+  #tablaProductos th:nth-child(7),
+  #tablaProductos td:nth-child(3),
+  #tablaProductos td:nth-child(4),
+  #tablaProductos td:nth-child(5),
+  #tablaProductos td:nth-child(6),
+  #tablaProductos td:nth-child(7) {
+    display: none !important;
+  }
+
+  /* Ajustes de diseño */
+  #tablaProductos th,
+  #tablaProductos td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  #tablaProductos {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 768px) {
+
+    .editar-producto {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .formulario-editar {
+        width: 100%;
+    }
+
+    .upload-box {
+        width: 100%;
+    }
+
+    input, select, textarea {
+        width: 100%;
+    }
+
+    /* 👇 Oculta la imagen en pantallas pequeñas */
+    .editar-producto > img {
+        display: none;
+    }
+}
+
+
+
