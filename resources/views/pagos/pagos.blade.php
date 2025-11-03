@@ -9,7 +9,7 @@
   <header class="page-header">
     <h1 class="page-title">Pagos Registrados</h1>
     <p class="page-sub">
-      <img src="{{ asset('img/productos/bxs-message-square-detail.svg.png') }}" alt="icono">
+      <!--<img src="{{ asset('img/productos/bxs-message-square-detail.svg.png') }}" alt="icono">-->
       En esta sección encontrarás la información de todos nuestros pagos registrados en el sistema financiero.
     </p>
 
