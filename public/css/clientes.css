@@ -1,0 +1,286 @@
+.modulo-clientes {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.contenido-clientes {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.titulo-clientes {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contenido-clientes h1 {
+    color: #000000;
+    font-size: 48px;
+}
+
+.info {
+    color: #8B8B8B;
+    font-size: 16px;
+}
+
+.nota {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: #7F55FA;
+    padding: 15px 12px;
+    border-radius: 20px;
+    color: white;
+}
+
+.filtros {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filtros input {
+    color: #949494;
+    border: solid 1px #949494;
+    border-radius: 20px;
+    font-size: 15px;
+    padding: 15px 12px;
+    width: 388px;
+}
+
+.botones {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.filtar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #040404;
+    color: white;
+    padding: 12px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.listar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #BABABA;
+    color: white;
+    padding: 12px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.crear-nuevo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #4F51AB;
+    color: white;
+    padding: 12px;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+/*estilos de la tabla*/
+
+/* Contenedor de la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado */
+table thead tr {
+    background-color: #f5f5f5;
+    color: #242424;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+table thead th {
+    padding: 12px 15px;
+    border-bottom: 2px solid #ddd;
+}
+
+/* Filas */
+table tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: background 0.3s;
+}
+
+table tbody tr:hover {
+    background-color: #f0f8ff;
+}
+
+/* Celdas */
+table tbody td {
+    text-align: center;
+    color: #000000;
+    font-size: 14px;
+    padding: 10px 15px;
+    vertical-align: middle;
+}
+
+.boton-eliminar {
+    border: none;
+}
+
+.boton-editar {
+    border: none;
+}
+
+table td a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*Formulario editar*/
+
+.editar-producto {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.formulario-editar h2 {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: #282828;
+    font-size: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.campos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.mb-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mb-3 label {
+    color: #3E4453;
+    font-size: 15px;
+}
+
+.mb-3 input,
+select,
+textarea {
+    border: solid 1px #D5D9E4;
+    border-radius: 6px;
+    padding: 12px 10px;
+    width: 100%;
+    max-width: 271.5px;
+    height: 48px;
+    font-size: 15px;
+    color: #3E4453;
+}
+
+.campos .mb-3 {
+    flex: 1;
+}
+
+.campos textarea {
+    min-height: 48px;
+    resize: vertical;
+}
+
+.editar-botones {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.boton-actualizar {
+    display: flex;
+    align-items: center;
+    background-color: #0373F2;
+    padding: 16px 10px;
+    gap: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    color: white;
+    border: none;
+    width: 106px;
+}
+
+.boton-eliminar-formulario {
+    display: flex;
+    align-items: center;
+    background-color: #d82626;
+    padding: 16px 10px;
+    gap: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    border: none;
+    width: 106px;
+    justify-content: center;
+}
+
+.upload-box {
+    width: 559px;
+    height: 172px;
+    background: linear-gradient(to bottom, #66ccff, #00aaff);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    border: 2px dashed white;
+    transition: background 0.3s;
+}
+
+.upload-box:hover {
+    background: linear-gradient(to bottom, #55bbee, #0099dd);
+}
+
+.upload-box img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.upload-box p {
+    margin: 4px 0;
+    font-size: 16px;
+}
+
+.upload-box p.bold {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+input[type="file"] {
+    display: none;
+}
